@@ -4,4 +4,59 @@
     <img src="assets/streamline-icon-clickbait@400x400.PNG" alt="" />
   </div>
   <h3>Let's Play!</h3>
+  <div class="grid">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="col-12 mt-1">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-at"></i></span>
+          <input
+            type="email"
+            name="email"
+            ngModel
+            pInputText
+            placeholder="Your Email"
+            required
+            email
+          />
+        </div>
+      </div>
+      <div class="col-12 mt-1">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input
+            type="text"
+            name="name"
+            ngModel
+            pInputText
+            placeholder="Your Name"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-12 mt-1">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-box"></i></span>
+          <input
+            type="text"
+            name="team"
+            ngModel
+            pInputText
+            placeholder="Team Name"
+            required
+            minlength="3"
+          />
+        </div>
+      </div>
+      <div class="col-12 mt-1">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="form.invalid"
+        >
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
 </main>
