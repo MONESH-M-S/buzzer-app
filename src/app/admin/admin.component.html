@@ -1,1 +1,11 @@
-<p>admin works!</p>
+<section>
+  <h2 class="text-center font-semibold mt-5">Admin Section</h2>
+  <div class="add-new-question text-center mb-4">
+    <button mat-flat-button color="primary" (click)="openAddNewQuestionDialog()">
+      <mat-icon style="margin-top: -3px">add</mat-icon>Add new Question
+    </button>
+  </div>
+  <div class="question">
+    <app-view-question></app-view-question>
+  </div>
+</section>

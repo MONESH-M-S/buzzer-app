@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
 import { AddQuestionComponent } from './admin/add-question/add-question.component';
 import { ViewQuestionComponent } from './admin/view-question/view-question.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { ViewQuestionComponent } from './admin/view-question/view-question.compo
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
