@@ -38,6 +38,7 @@ export class AddQuestionComponent implements OnInit {
         });
         window.setTimeout(() => {
           this.dialogRef.close();
+          this.adminService.getAllQuetions();
         }, 2500);
       } else {
         this.messageService.add({
