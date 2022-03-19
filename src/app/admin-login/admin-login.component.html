@@ -1,0 +1,22 @@
+<main>
+  <h2 class="font-semibold text-center">Admin Password</h2>
+  <div class="p-inputgroup">
+    <span class="p-inputgroup-addon"><i class="pi pi-eye"></i></span>
+    <input
+      type="password"
+      [(ngModel)]="password"
+      pInputText
+      placeholder="Admin Password"
+      required
+    />
+  </div>
+  <div class="text-center mt-3">
+      <button
+        mat-flat-button
+        color="primary"
+        [mat-dialog-close]="password"
+      >
+        Submit
+      </button>
+  </div>
+</main>

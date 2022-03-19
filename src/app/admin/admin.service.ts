@@ -21,4 +21,8 @@ export class AdminService {
   deleteClickedDetails() {
     return this.http.delete<{ message: string }>(`${this.BACKEND_URL}click/`);
   }
+
+  deleteUser() {
+    return this.http.delete<{ message: string }>(`${this.BACKEND_URL}team/`);
+  }
 }

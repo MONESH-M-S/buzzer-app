@@ -13,9 +13,10 @@ import { AdminComponent } from './admin/admin.component';
 import { MessageService } from 'primeng/api';
 import { UserComponent } from './user/user.component';
 import { DatePipe } from '@angular/common';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AdminComponent, UserComponent],
+  declarations: [AppComponent, HomeComponent, AdminComponent, UserComponent, AdminLoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

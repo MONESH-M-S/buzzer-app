@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <section>
   <h2 class="text-center font-semibold mt-5">Admin Section</h2>
   <div class="buttons text-center">
@@ -6,6 +7,9 @@
     </button>
     <button mat-flat-button color="warn" (click)="clearData()" class="mr-2">
       <mat-icon style="margin-top: -3px">cancel</mat-icon> Clear
+    </button> <br>
+    <button mat-flat-button color="accent" (click)="deleteUsers()" class="mt-2">
+      <mat-icon style="margin-top: -3px">delete</mat-icon> Delete Users
     </button>
   </div>
   <h2 *ngIf="!isClicksAvailable" class="text-center mt-5 font-bold">

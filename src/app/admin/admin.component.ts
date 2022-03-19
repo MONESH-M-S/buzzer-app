@@ -59,4 +59,23 @@ export class AdminComponent implements OnInit {
       this.refresh();
     });
   }
+
+  deleteUsers() {
+    this.adminService.deleteUser().subscribe((res) => {
+      if (res.message == 'Deleted Successfully!') {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: res.message,
+        });
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: res.message,
+        });
+      }
+      this.refresh();
+    });
+  }
 }
