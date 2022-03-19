@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AddQuestionComponent } from './add-question/add-question.component';
+import { MessageService } from 'primeng/api';
 import { AdminService } from './admin.service';
 
 @Component({
@@ -10,36 +10,53 @@ import { AdminService } from './admin.service';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  teamDetails: any;
+  clickDetails: any;
+  isClicksAvailable: boolean = false;
   id!: string;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     private adminService: AdminService,
-    private dialog: MatDialog
+    private messageService: MessageService
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      if (params['id']) {
-        this.id = params['id'];
-        this.adminService.getTeamDetailById(params['id']).subscribe((res) => {
-          if (res.team.isAdmin === false) {
-            this.router.navigate(['/']);
-          }
-        });
+    this.adminService.getClickedDetails().subscribe((res) => {
+      if (res.clicks != null) {
+        this.clickDetails = res.clicks;
+        this.isClicksAvailable = true;
+      } else {
+        this.isClicksAvailable = false;
       }
     });
   }
 
-  openAddNewQuestionDialog() {
-    let dialogRef = this.dialog.open(AddQuestionComponent, {
-      data: {
-        id: this.id,
-      },
-      hasBackdrop: true,
-      disableClose: true,
+  refresh() {
+    this.adminService.getClickedDetails().subscribe((res) => {
+      if (res.clicks != null) {
+        this.clickDetails = res.clicks;
+        this.isClicksAvailable = true;
+      } else {
+        this.isClicksAvailable = false;
+      }
+    });
+  }
+
+  clearData() {
+    this.adminService.deleteClickedDetails().subscribe((res) => {
+      if (res.message == 'Deleted Successfully!') {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: res.message,
+        });
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: res.message,
+        });
+      }
+      this.refresh();
     });
   }
 }

@@ -18,10 +18,11 @@ main {
     margin-top: 20px;
   }
   .grid {
-    text-align: center;
+    justify-content: center;
 
     button {
       width: 50%;
+      margin: auto;
     }
   }
 }

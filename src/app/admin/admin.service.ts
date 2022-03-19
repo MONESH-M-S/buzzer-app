@@ -12,30 +12,13 @@ export class AdminService {
 
   constructor(private http: HttpClient) {}
 
-  getTeamDetailById(id: string) {
-    return this.http.get<{ team: any; message: string }>(
-      this.BACKEND_URL + 'team/' + id
+  getClickedDetails() {
+    return this.http.get<{ clicks: any; message: string }>(
+      `${this.BACKEND_URL}click/`
     );
   }
 
-  getAllQuetions() {
-    return this.http
-      .get<{ questions: any; message: string }>(`${this.BACKEND_URL}question/`)
-      .subscribe((res) => {
-        if (res.questions.length > 0) {
-          this.question.next(res.questions);
-        }
-      });
-  }
-
-  getQuestionsUpdated() {
-    return this.question.asObservable();
-  }
-
-  addNewQuestion(data: { qno: number; creator: string }) {
-    return this.http.post<{ question: any; message: string }>(
-      `${this.BACKEND_URL}question/add`,
-      data
-    );
+  deleteClickedDetails() {
+    return this.http.delete<{ message: string }>(`${this.BACKEND_URL}click/`);
   }
 }

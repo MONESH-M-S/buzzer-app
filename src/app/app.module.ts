@@ -10,18 +10,12 @@ import { PrimengModule } from './primeng.module';
 import { MaterialModule } from './material.module';
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './admin/admin.component';
-import { AddQuestionComponent } from './admin/add-question/add-question.component';
-import { ViewQuestionComponent } from './admin/view-question/view-question.component';
 import { MessageService } from 'primeng/api';
+import { UserComponent } from './user/user.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    AdminComponent,
-    AddQuestionComponent,
-    ViewQuestionComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, AdminComponent, UserComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,7 +25,7 @@ import { MessageService } from 'primeng/api';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [MessageService],
-  bootstrap: [AppComponent]
+  providers: [MessageService, DatePipe],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

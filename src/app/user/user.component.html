@@ -1,0 +1,23 @@
+<section class="text-center mt-5">
+  <h2>
+    Hello
+    <span class="font-semibold">{{ userDetails?.name | titlecase }}</span> -
+    <span class="font-semibold">{{ userDetails?.team | titlecase }}</span>
+    <br />
+    Ready to Buzz!
+  </h2>
+  <div class="button" *ngIf="!isLoading">
+    <button mat-raised-button (click)="onBuzzerClicked()" color="primary">
+      Buzz
+    </button>
+  </div>
+  <div class="spinner mt-5" *ngIf="isLoading"> 
+      <p-progressSpinner
+        [style]="{ width: '50px', height: '50px' }"
+        styleClass="custom-spinner"
+        strokeWidth="8"
+        fill="var(--surface-ground)"
+        animationDuration=".5s"
+      ></p-progressSpinner>
+  </div>
+</section>

@@ -23,10 +23,8 @@ export class HomeComponent implements OnInit {
     };
 
     this.homeService.addNewTeam(loginForm).subscribe((res) => {
-      if (res.team.isAdmin) {
-        this.router.navigate([`a/${res.team._id}`]);
-      } else {
-        this.router.navigate([`${res.team._id}`]);
+      if (res.team._id) {
+        this.router.navigate([`u/${res.team._id}`]);
       }
     });
   }
